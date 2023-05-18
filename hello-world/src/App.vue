@@ -1,30 +1,34 @@
 <template>
 <div>
-<div>{{greet}}{{name}}</div>
-<div v-text="channel"></div>
-<div v-html='channel'></div>
-<h2 v-bind:id='headingId'>heading</h2>
-<button :disabled='isDisable'>Bind</button>
-<h2 class='underline'>underline text</h2>
-<h2 :class='status'>status</h2>
-<h2 :class="isPromoted && 'promoted'">Promoted</h2>
-<h2 :class="isSoldOut ? 'sold-out' : 'new'">Solout?: movie</h2>
-<h2 :class="isSoldOut ? ['new','promoted'] : ['sold-out']">Newly promoted movie</h2>
+<h2 v-if="num === 0">The number is zero</h2>
+<h2 v-else-if="num<0">The number is negative</h2>
+<h2 v-else-if="num>0">The number is positive</h2>
+<h2 v-else>Not a number</h2>
 
-<h2 :class="[isPromoted && 'promoted',isSoldOut ? 'sold-out' : 'new']">Array conditional</h2>
+<div v-if='display'>
+  <h2>displat the content</h2>
+</div>
 
-<h2 :class="{
-  promoted: isPromoted,
-  new: !isSoldOut,
-  'sold-out':isSoldOut
-  }">object conditional</h2>
+<h2 v-show='showElement'>using v-show property</h2>
 
-<h2 :style="{color:highLightColor,fontSize:headerSize + 'px'}">Inline style</h2>
 
-<h2 :style='headerStyleObject'>style object</h2>
+<h2 v-for="name in names" :key="name">{{name}}</h2>
 
-<div :style="[baseStyleObject,successStyleObject]">Success style</div>
+<h2 v-for="name in fullName" :key="name.first"> {{name.first}} {{name.last}}</h2>
+<div v-for="actor in actors" :key="actor.name">
+<h2>{{actor.name}}</h2>
+<h3 v-for="movie in actor.movies" :key="movie">{{movie}}</h3>
 
+<h2 v-for="(value,key,index) in myInfo" :key="value">{{index}} {{key}}{{value}}</h2>
+</div>
+
+<!-- conditional rendering of list -->
+<!-- <template>
+  <div v-for="name in names" :key="name">
+
+<h2 v-if="name === 'Bruce'">{{name}}</h2>
+</div>
+</template> -->
 
 </div>
 </template>
@@ -34,32 +38,39 @@ export default {
   name: 'App',
   data() {
     return {
-      greet: 'hello',
-      name:'Nivya',
-      channel:'<b>code evolution</b>',
-      headingId: 'heading',
-      isDiasbled: false,
-      status: 'danger',
-      isPromoted: false,
-      isSoldOut: true,
-      highLightColor: 'orange',
-      headerSize:50,
-      headerStyleObject: {
-        color: 'red',
-        padding:'20px',
-        fontSize:'60px'
+      num: '',
+      display:true,
+      showElement: true,
+      names:['Bruce','clark','Diana'],
+      fullName:[{
+        first:'anju',las:'thomas'
       },
-      baseStyleObject: {
-        fontSize:'50px',
-        padding:'10px'
+      {
+        first:'anju1',las:'thomas'
       },
-      successStyleObject: {
-        color:'green',
-        backgroundColor: 'lightgreen',
-        border: '1px solid green',
-        padding:'20px'
+      {
+        first:'anju2',las:'thomas'
       }
+      ],
+      actors:[
+        {
+          name: 'sara',
+          movies: ['nandhanam','cid']
+        },
+        {
+          name: 'saramol',
+          movies: ['nandhanam','cid']
+        },
+        {
+          name: 'sarasusan',
+          movies: ['nandhanam','cid']
+        },
 
+      ],
+      myInfo: {
+        name: 'nivya',
+        class: 12
+      }
     }
   }
 }
