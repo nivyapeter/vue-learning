@@ -40,3 +40,14 @@
 ## v-bind shorthand
 
 - v-bind: can be written as just :
+
+## conditional rendering in vue
+
+- v-if
+- v-else-if
+- v-else
+- v-show
+
+## List rendering
+
+- v-for
