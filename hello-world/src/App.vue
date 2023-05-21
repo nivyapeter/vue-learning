@@ -1,31 +1,69 @@
 <template>
 <div>
-<div>{{greet}}{{name}}</div>
-<div v-text="channel"></div>
-<div v-html='channel'></div>
-<h2 v-bind:id='headingId'>heading</h2>
-<button :disabled='isDisable'>Bind</button>
-<h2 class='underline'>underline text</h2>
-<h2 :class='status'>status</h2>
-<h2 :class="isPromoted && 'promoted'">Promoted</h2>
-<h2 :class="isSoldOut ? 'sold-out' : 'new'">Solout?: movie</h2>
-<h2 :class="isSoldOut ? ['new','promoted'] : ['sold-out']">Newly promoted movie</h2>
+<div>
+<pre>
+  {{JSON.stringify(formValues,null,2)}}
+</pre>
+</div>
 
-<h2 :class="[isPromoted && 'promoted',isSoldOut ? 'sold-out' : 'new']">Array conditional</h2>
+<form @submit.prevent="submitForm">
+  <div>
+    <label for="name">Name</label>
+    <input type="text " id="name" v-model.trim.lazy="formValues.name">
+  </div>
+  <label for="profile">Profile</label>
+  <textarea name="profile" id="profile" cols="30" rows="10" v-model="formValues.profileSummary" ></textarea>
+  <div>
+    <label for="country">Country</label>
+    <select name="country" id="country" v-model="formValues.country">
+      <option value="">Select a country</option>
+      <option value="india">India</option>
+      <option value="singapore">Singapore</option>
+    </select>
+  </div>
 
-<h2 :class="{
-  promoted: isPromoted,
-  new: !isSoldOut,
-  'sold-out':isSoldOut
-  }">object conditional</h2>
+  <div>
+    <label for="country">Job location</label>
+    <select name="country" id="country" multiple v-model="formValues.jobLocation">
+      <option value="">Select a country</option>
+      <option value="india">India</option>
+      <option value="singapore">Singapore</option>
+    </select>
+  </div>
 
-<h2 :style="{color:highLightColor,fontSize:headerSize + 'px'}">Inline style</h2>
+  <div>
+    <input type="checkbox" id='remoteWork'  v-model="formValues.remoteWork" true-value="yes" false-value="no" />
+    <label for="remoteWork">Open to remote work</label>
+  </div>
 
-<h2 :style='headerStyleObject'>style object</h2>
+  <div>
+    <label for="">Skill set</label>
+    <input type="checkbox" id="html" value="html" v-model="formValues.skillSet"/>
+    <label for="html">HTML</label>
+    <input type="checkbox" id="css" value="css" v-model="formValues.skillSet" />
+    <label for="css">CSS</label>
+    <input type="checkbox" id="javascript" value="javascript"  v-model="formValues.skillSet" />
+    <label for="javascript">Javascript</label>
+  </div>
 
-<div :style="[baseStyleObject,successStyleObject]">Success style</div>
+  <div>
+    <label for="">yearsOfExperience</label>
+    <input type="radio" id="0-2" value="0-2" v-model="formValues.yearsOfExperience" />
+    <label for="0-2">0-2</label>
+    <input type="radio" id="3-5" value="3-5" v-model="formValues.yearsOfExperience" />
+    <label for="3-5">3-5</label>
+  </div>
 
+  <div>
+    <label for="age">Age</label>
+    <input @keyup="submitForm" v-model.number="formValues.age" id="age"  />
+  </div>
 
+  <!-- <div>
+    <button >Submit</button>
+  </div> -->
+
+</form> 
 </div>
 </template>
 
@@ -34,34 +72,24 @@ export default {
   name: 'App',
   data() {
     return {
-      greet: 'hello',
-      name:'Nivya',
-      channel:'<b>code evolution</b>',
-      headingId: 'heading',
-      isDiasbled: false,
-      status: 'danger',
-      isPromoted: false,
-      isSoldOut: true,
-      highLightColor: 'orange',
-      headerSize:50,
-      headerStyleObject: {
-        color: 'red',
-        padding:'20px',
-        fontSize:'60px'
-      },
-      baseStyleObject: {
-        fontSize:'50px',
-        padding:'10px'
-      },
-      successStyleObject: {
-        color:'green',
-        backgroundColor: 'lightgreen',
-        border: '1px solid green',
-        padding:'20px'
+      formValues: {
+        name: '',
+        profileSummary: '',
+        country:'',
+        jobLocation:[],
+        remoteWork: "no",
+        skillSet:[],
+        yearsOfExperience:'',
+        age:null
       }
-
+    }
+  },
+  methods: {
+    submitForm() {
+      console.log('form values',this.formValues);
     }
   }
+  
 }
 </script>
 
