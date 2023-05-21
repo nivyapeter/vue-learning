@@ -51,3 +51,12 @@
 ## List rendering
 
 - v-for
+
+## Event handling
+
+- v-on:click=""
+- shorthand @click
+
+## Form handling
+
+- v-model
