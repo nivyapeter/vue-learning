@@ -1,85 +1,55 @@
 <template>
-<div>
-  <h2 v-once>{{name}}</h2>
-  <button @click="name='batsman'">Change name</button>
-  <h2 v-pre>{{name}}</h2>
-  <h2>Full name: {{firstName}}{{lastName}}</h2>
-  <h2>Computed fullName: {{fullName}}</h2>
-
-  <button @click="changeFullName">Change fullName</button>
-
-  <!-- <h2>Total = {{items.reduce((total,current) => (total = total + current.price),0)}}</h2> -->
-  <button @click="items.push({id:4,title:'watch',price:150})">Add item</button>
-  <h2>Computed Total = {{total}}</h2>
-  <h2>Method Tota = {{getTotal()}}</h2>
-  <input type="text" v-modal="country" />
-
-    <div  v-for="item in items" :key="item.id">
-     <h2 v-if="item.price > 100">{{item.title}} - {{item.price}}</h2>
+  <div>
+    <h2>volume tracker (0-20)</h2>
+    <h3>Current volume - {{ volume }}</h3>
+    <div>
+      <button @click="volume += 2">Increase</button>
+      <button @click="volume -= 2">Decrease</button>
     </div>
-     <h2 v-for="item in expensiveItems" :key="item.id">{{item.title}} - {{item.price}}</h2>
-</div>
+    <input type="text" v-model="movie" />
+    <input type="text" v-model="movieInfo.title" />
+    <input type="text" v-model="movieInfo.actor" />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
-      name: 'viswas',
-      firstName: 'nivya',
-      lastName:'peter',
-      items:[
-        {
-          id: 1,
-          title:'tv',
-          price: 100,
-        },
-        {
-          id: 1,
-          title:'phone',
-          price: 200,
-        },
-        {
-          id: 1,
-          title:'laptop',
-          price: 300,
-        }
-      ],
-      country:''
-    }
-  },
-  methods: {
-  getTotal() {
-    console.log('getTotal method');
-      return this.items.reduce((total,current) => (total + current.price),0)
-    },
-  changeFullName() {
-   this.fullName = 'anju thomas'
-  }
-  },
-  computed:{
-    fullName: {
-      get() {
-      return `${this.firstName} ${this.lastName} `   
+      volume: 0,
+      movie: "batsman",
+      movieInfo: {
+        title: "",
+        actor: "",
       },
-      set(value) {
-        const names = value.split(' ')
-        this.firstName = names[0]
-        this.lastName = names[1]
+    };
+  },
+  methods: {},
+  computed: {},
+  watch: {
+    volume(newValue) {
+      if (newValue === 16) {
+        alert("Volume is high");
       }
     },
 
-    total() {
-      console.log('computed total');
-      return this.items.reduce((total,current) => (total + current.price),0)
+    movie: {
+      handler(newValue) {
+        console.log(`Calling API WITH MOVIE NAME = ${newValue}`);
+      },
+      immadiate: true,
     },
-    expensiveItems() {
-      return this.items.filter(item => item.price > 100)
-    }
-  }
-  
-}
+    movieInfo: {
+      handler(newValue) {
+        console.log(
+          `Calling API WITH MOVIE NAME = ${newValue.title} ${newValue.actor}`
+        );
+      },
+      deep: true,
+    },
+  },
+};
 </script>
 
 <style>
@@ -92,17 +62,17 @@ export default {
   margin-top: 60px;
 }
 .underline {
- text-decoration: underline;
+  text-decoration: underline;
 }
 
 .promoted {
- font-style: italic ;
+  font-style: italic;
 }
 
 .new {
-  color:green
+  color: green;
 }
 .sold-out {
-  color: red
+  color: red;
 }
 </style>
