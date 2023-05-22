@@ -1,17 +1,20 @@
 <template>
   <div>
-    <GreetSection name="Anju" hero-name="wonder woman" />
-    <GreetSection name="Shilpa" hero-name="beautiful lady" />
-    <GreetSection :name="name" :hero-name="channel" />
+    <article-section
+      id="my-article"
+      title="custom title"
+      :lines="50"
+      :isPublished="true"
+    />
   </div>
 </template>
 
 <script>
-import GreetSection from "./components/GreetSection.vue";
+import ArticleSection from "./components/ArticleSection.vue";
 export default {
   name: "App",
   components: {
-    GreetSection,
+    ArticleSection,
   },
   data() {
     return {
