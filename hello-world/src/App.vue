@@ -1,5 +1,9 @@
 <template>
-  <GreetSection />
+  <div>
+    <GreetSection name="Anju" hero-name="wonder woman" />
+    <GreetSection name="Shilpa" hero-name="beautiful lady" />
+    <GreetSection :name="name" :hero-name="channel" />
+  </div>
 </template>
 
 <script>
@@ -8,6 +12,12 @@ export default {
   name: "App",
   components: {
     GreetSection,
+  },
+  data() {
+    return {
+      name: "nimmi",
+      channel: "code evolution",
+    };
   },
 };
 </script>
