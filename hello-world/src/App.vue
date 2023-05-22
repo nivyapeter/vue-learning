@@ -1,31 +1,23 @@
 <template>
 <div>
-<div>{{greet}}{{name}}</div>
-<div v-text="channel"></div>
-<div v-html='channel'></div>
-<h2 v-bind:id='headingId'>heading</h2>
-<button :disabled='isDisable'>Bind</button>
-<h2 class='underline'>underline text</h2>
-<h2 :class='status'>status</h2>
-<h2 :class="isPromoted && 'promoted'">Promoted</h2>
-<h2 :class="isSoldOut ? 'sold-out' : 'new'">Solout?: movie</h2>
-<h2 :class="isSoldOut ? ['new','promoted'] : ['sold-out']">Newly promoted movie</h2>
+  <h2 v-once>{{name}}</h2>
+  <button @click="name='batsman'">Change name</button>
+  <h2 v-pre>{{name}}</h2>
+  <h2>Full name: {{firstName}}{{lastName}}</h2>
+  <h2>Computed fullName: {{fullName}}</h2>
 
-<h2 :class="[isPromoted && 'promoted',isSoldOut ? 'sold-out' : 'new']">Array conditional</h2>
+  <button @click="changeFullName">Change fullName</button>
 
-<h2 :class="{
-  promoted: isPromoted,
-  new: !isSoldOut,
-  'sold-out':isSoldOut
-  }">object conditional</h2>
+  <!-- <h2>Total = {{items.reduce((total,current) => (total = total + current.price),0)}}</h2> -->
+  <button @click="items.push({id:4,title:'watch',price:150})">Add item</button>
+  <h2>Computed Total = {{total}}</h2>
+  <h2>Method Tota = {{getTotal()}}</h2>
+  <input type="text" v-modal="country" />
 
-<h2 :style="{color:highLightColor,fontSize:headerSize + 'px'}">Inline style</h2>
-
-<h2 :style='headerStyleObject'>style object</h2>
-
-<div :style="[baseStyleObject,successStyleObject]">Success style</div>
-
-
+    <div  v-for="item in items" :key="item.id">
+     <h2 v-if="item.price > 100">{{item.title}} - {{item.price}}</h2>
+    </div>
+     <h2 v-for="item in expensiveItems" :key="item.id">{{item.title}} - {{item.price}}</h2>
 </div>
 </template>
 
@@ -34,34 +26,59 @@ export default {
   name: 'App',
   data() {
     return {
-      greet: 'hello',
-      name:'Nivya',
-      channel:'<b>code evolution</b>',
-      headingId: 'heading',
-      isDiasbled: false,
-      status: 'danger',
-      isPromoted: false,
-      isSoldOut: true,
-      highLightColor: 'orange',
-      headerSize:50,
-      headerStyleObject: {
-        color: 'red',
-        padding:'20px',
-        fontSize:'60px'
+      name: 'viswas',
+      firstName: 'nivya',
+      lastName:'peter',
+      items:[
+        {
+          id: 1,
+          title:'tv',
+          price: 100,
+        },
+        {
+          id: 1,
+          title:'phone',
+          price: 200,
+        },
+        {
+          id: 1,
+          title:'laptop',
+          price: 300,
+        }
+      ],
+      country:''
+    }
+  },
+  methods: {
+  getTotal() {
+    console.log('getTotal method');
+      return this.items.reduce((total,current) => (total + current.price),0)
+    },
+  changeFullName() {
+   this.fullName = 'anju thomas'
+  }
+  },
+  computed:{
+    fullName: {
+      get() {
+      return `${this.firstName} ${this.lastName} `   
       },
-      baseStyleObject: {
-        fontSize:'50px',
-        padding:'10px'
-      },
-      successStyleObject: {
-        color:'green',
-        backgroundColor: 'lightgreen',
-        border: '1px solid green',
-        padding:'20px'
+      set(value) {
+        const names = value.split(' ')
+        this.firstName = names[0]
+        this.lastName = names[1]
       }
+    },
 
+    total() {
+      console.log('computed total');
+      return this.items.reduce((total,current) => (total + current.price),0)
+    },
+    expensiveItems() {
+      return this.items.filter(item => item.price > 100)
     }
   }
+  
 }
 </script>
 
