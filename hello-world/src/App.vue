@@ -8,6 +8,13 @@
   <!-- <h2>Total = {{items.reduce((total,current) => (total = total + current.price),0)}}</h2> -->
   <button @click="items.push({id:4,title:'watch',price:150})">Add item</button>
   <h2>Computed Total = {{total}}</h2>
+  <h2>Method Tota = {{getTotal()}}</h2>
+  <input type="text" v-modal="country" />
+
+    <div  v-for="item in items" :key="item.id">
+     <h2 v-if="item.price > 100">{{item.title}} - {{item.price}}</h2>
+    </div>
+     <h2 v-for="item in expensiveItems" :key="item.id">{{item.title}} - {{item.price}}</h2>
 </div>
 </template>
 
@@ -35,18 +42,26 @@ export default {
           title:'laptop',
           price: 300,
         }
-      ]
+      ],
+      country:''
     }
   },
   methods: {
- 
+  getTotal() {
+    console.log('getTotal method');
+      return this.items.reduce((total,current) => (total + current.price),0)
+    }
   },
   computed:{
     fullName() {
       return `${this.firstName} ${this.lastName} `   
     },
     total() {
+      console.log('computed total');
       return this.items.reduce((total,current) => (total + current.price),0)
+    },
+    expensiveItems() {
+      return this.items.filter(item => item.price > 100)
     }
   }
   
