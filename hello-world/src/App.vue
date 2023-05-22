@@ -1,68 +1,55 @@
 <template>
-<div>
-<div>{{greet}}{{name}}</div>
-<div v-text="channel"></div>
-<div v-html='channel'></div>
-<h2 v-bind:id='headingId'>heading</h2>
-<button :disabled='isDisable'>Bind</button>
-<h2 class='underline'>underline text</h2>
-<h2 :class='status'>status</h2>
-<h2 :class="isPromoted && 'promoted'">Promoted</h2>
-<h2 :class="isSoldOut ? 'sold-out' : 'new'">Solout?: movie</h2>
-<h2 :class="isSoldOut ? ['new','promoted'] : ['sold-out']">Newly promoted movie</h2>
-
-<h2 :class="[isPromoted && 'promoted',isSoldOut ? 'sold-out' : 'new']">Array conditional</h2>
-
-<h2 :class="{
-  promoted: isPromoted,
-  new: !isSoldOut,
-  'sold-out':isSoldOut
-  }">object conditional</h2>
-
-<h2 :style="{color:highLightColor,fontSize:headerSize + 'px'}">Inline style</h2>
-
-<h2 :style='headerStyleObject'>style object</h2>
-
-<div :style="[baseStyleObject,successStyleObject]">Success style</div>
-
-
-</div>
+  <div>
+    <h2>volume tracker (0-20)</h2>
+    <h3>Current volume - {{ volume }}</h3>
+    <div>
+      <button @click="volume += 2">Increase</button>
+      <button @click="volume -= 2">Decrease</button>
+    </div>
+    <input type="text" v-model="movie" />
+    <input type="text" v-model="movieInfo.title" />
+    <input type="text" v-model="movieInfo.actor" />
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
-      greet: 'hello',
-      name:'Nivya',
-      channel:'<b>code evolution</b>',
-      headingId: 'heading',
-      isDiasbled: false,
-      status: 'danger',
-      isPromoted: false,
-      isSoldOut: true,
-      highLightColor: 'orange',
-      headerSize:50,
-      headerStyleObject: {
-        color: 'red',
-        padding:'20px',
-        fontSize:'60px'
+      volume: 0,
+      movie: "batsman",
+      movieInfo: {
+        title: "",
+        actor: "",
       },
-      baseStyleObject: {
-        fontSize:'50px',
-        padding:'10px'
-      },
-      successStyleObject: {
-        color:'green',
-        backgroundColor: 'lightgreen',
-        border: '1px solid green',
-        padding:'20px'
+    };
+  },
+  methods: {},
+  computed: {},
+  watch: {
+    volume(newValue) {
+      if (newValue === 16) {
+        alert("Volume is high");
       }
+    },
 
-    }
-  }
-}
+    movie: {
+      handler(newValue) {
+        console.log(`Calling API WITH MOVIE NAME = ${newValue}`);
+      },
+      immadiate: true,
+    },
+    movieInfo: {
+      handler(newValue) {
+        console.log(
+          `Calling API WITH MOVIE NAME = ${newValue.title} ${newValue.actor}`
+        );
+      },
+      deep: true,
+    },
+  },
+};
 </script>
 
 <style>
@@ -75,17 +62,17 @@ export default {
   margin-top: 60px;
 }
 .underline {
- text-decoration: underline;
+  text-decoration: underline;
 }
 
 .promoted {
- font-style: italic ;
+  font-style: italic;
 }
 
 .new {
-  color:green
+  color: green;
 }
 .sold-out {
-  color: red
+  color: red;
 }
 </style>
