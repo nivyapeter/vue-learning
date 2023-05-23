@@ -60,3 +60,18 @@
 ## Form handling
 
 - v-model
+
+```
+## v-modifiers
+
+v-once - Render the corresponding HTML element only once
+
+v-pre - Skip compilation for the corresponding element
+
+```
+
+## Method vs Computed property
+
+```
+- Method will call for every change in the ui but the computed property will not.so for better performance of the app always recommand methods.
+```

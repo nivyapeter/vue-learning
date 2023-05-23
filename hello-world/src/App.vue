@@ -1,25 +1,27 @@
 <template>
   <div>
-    <article-section
-      id="my-article"
-      title="custom title"
-      :lines="50"
-      :isPublished="true"
-    />
+    <ComponentC />
   </div>
 </template>
 
 <script>
-import ArticleSection from "./components/ArticleSection.vue";
+import ComponentC from "./components/ComponentC.vue";
 export default {
   name: "App",
   components: {
-    ArticleSection,
+    ComponentC,
   },
   data() {
     return {
-      name: "nimmi",
-      channel: "code evolution",
+      name: "vswas",
+    };
+  },
+  // provide: {
+  //   userName: this.name,
+  // },
+  provide() {
+    return {
+      userName: this.name,
     };
   },
 };
