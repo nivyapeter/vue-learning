@@ -1,30 +1,31 @@
 <template>
   <div>
-    <card-section></card-section>
-    <CardSection>Card content</CardSection>
-    <CardSection><h2>card content</h2></CardSection>
-    <card-section>
-      <img src="" alt="" />
-    </card-section>
+    <name-list>
+      <template v-slot:default="slotProps">
+        {{ slotProps.firstName }} {{ slotProps.lastName }}
+      </template>
+    </name-list>
 
-    <card-section>
-      <template v-slot:header>
-        <h3>header</h3>
+    <name-list>
+      <template v-slot:default="slotProps">
+        {{ slotProps.firstName }}
       </template>
-      <template v-slot:default> <img src="" alt="" /></template>
-      <template v-slot:footer>
-        <h3>View details</h3>
+    </name-list>
+
+    <name-list>
+      <template v-slot:default="slotProps">
+        {{ slotProps.lastName }}
       </template>
-    </card-section>
+    </name-list>
   </div>
 </template>
 
 <script>
-import CardSection from "./components/CardSEction.vue";
+import NameList from "./components/NameList.vue";
 export default {
   name: "App",
   components: {
-    CardSection,
+    NameList,
   },
   data() {
     return {
