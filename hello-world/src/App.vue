@@ -1,28 +1,30 @@
 <template>
   <div>
-    <ComponentC />
+    <button @click="handleShowPopup">Show popup</button>
+    <PopupSection v-show="showPopup" @close="showPopup = false" />
   </div>
 </template>
 
 <script>
-import ComponentC from "./components/ComponentC.vue";
+import PopupSection from "./components/PopupSection.vue";
 export default {
   name: "App",
   components: {
-    ComponentC,
+    PopupSection,
   },
   data() {
     return {
-      name: "vswas",
+      showPopup: false,
     };
   },
-  // provide: {
-  //   userName: this.name,
-  // },
-  provide() {
-    return {
-      userName: this.name,
-    };
+  methods: {
+    handleShowPopup() {
+      return (this.showPopup = true);
+    },
+    closePopup(name) {
+      this.showPopup = false;
+      console.log("name", name);
+    },
   },
 };
 </script>
