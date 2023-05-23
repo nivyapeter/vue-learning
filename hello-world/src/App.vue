@@ -1,16 +1,30 @@
 <template>
   <div>
-    <!-- <input type="text" v-model="name" /> -->
-    <InputComponent />
+    <card-section></card-section>
+    <CardSection>Card content</CardSection>
+    <CardSection><h2>card content</h2></CardSection>
+    <card-section>
+      <img src="" alt="" />
+    </card-section>
+
+    <card-section>
+      <template v-slot:header>
+        <h3>header</h3>
+      </template>
+      <template v-slot:default> <img src="" alt="" /></template>
+      <template v-slot:footer>
+        <h3>View details</h3>
+      </template>
+    </card-section>
   </div>
 </template>
 
 <script>
-import InputComponent from "./components/InputComponent.vue";
+import CardSection from "./components/CardSEction.vue";
 export default {
   name: "App",
   components: {
-    InputComponent,
+    CardSection,
   },
   data() {
     return {
