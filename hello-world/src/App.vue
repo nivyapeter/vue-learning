@@ -1,31 +1,23 @@
 <template>
   <div>
-    <button @click="handleShowPopup">Show popup</button>
-    <PopupSection v-show="showPopup" @close="showPopup = false" />
+    <!-- <input type="text" v-model="name" /> -->
+    <InputComponent />
   </div>
 </template>
 
 <script>
-import PopupSection from "./components/PopupSection.vue";
+import InputComponent from "./components/InputComponent.vue";
 export default {
   name: "App",
   components: {
-    PopupSection,
+    InputComponent,
   },
   data() {
     return {
-      showPopup: false,
+      name: "",
     };
   },
-  methods: {
-    handleShowPopup() {
-      return (this.showPopup = true);
-    },
-    closePopup(name) {
-      this.showPopup = false;
-      console.log("name", name);
-    },
-  },
+  methods: {},
 };
 </script>
 
