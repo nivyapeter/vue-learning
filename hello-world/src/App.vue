@@ -1,15 +1,15 @@
 <template>
   <div>
-    <MethodsComponent />
+    <VModel />
   </div>
 </template>
 
 <script>
-import MethodsComponent from "./components/MethodsComponent.vue";
+import VModel from "./components/VModel.vue";
 export default {
   name: "App",
   components: {
-    MethodsComponent,
+    VModel,
   },
   data() {
     return {};
