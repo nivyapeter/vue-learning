@@ -1,15 +1,15 @@
 <template>
   <div>
-    <create-post />
+    <parent-component />
   </div>
 </template>
 
 <script>
-import CreatePost from "./components/CreatePost.vue";
+import ParentComponent from "./components/ParentComponent.vue";
 export default {
   name: "App",
   components: {
-    CreatePost,
+    ParentComponent,
   },
   data() {
     return {};
