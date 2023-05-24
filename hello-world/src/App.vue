@@ -1,15 +1,15 @@
 <template>
   <div>
-    <ComputedComponent />
+    <WatchComponent />
   </div>
 </template>
 
 <script>
-import ComputedComponent from "./components/Computedcomponent.vue";
+import WatchComponent from "./components/WatchComponent.vue";
 export default {
   name: "App",
   components: {
-    ComputedComponent,
+    WatchComponent,
   },
   data() {
     return {};
