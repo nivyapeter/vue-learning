@@ -1,15 +1,15 @@
 <template>
   <div>
-    <WatchComponent />
+    <ProvideInject />
   </div>
 </template>
 
 <script>
-import WatchComponent from "./components/WatchComponent.vue";
+import ProvideInject from "./components/ProvideInject.vue";
 export default {
   name: "App",
   components: {
-    WatchComponent,
+    ProvideInject,
   },
   data() {
     return {};
