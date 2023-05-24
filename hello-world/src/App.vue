@@ -1,15 +1,15 @@
 <template>
   <div>
-    <VModel />
+    <ComputedComponent />
   </div>
 </template>
 
 <script>
-import VModel from "./components/VModel.vue";
+import ComputedComponent from "./components/Computedcomponent.vue";
 export default {
   name: "App",
   components: {
-    VModel,
+    ComputedComponent,
   },
   data() {
     return {};
