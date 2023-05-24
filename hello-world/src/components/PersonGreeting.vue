@@ -1,5 +1,8 @@
 <template>
-  <div>hello {{ fullName }}</div>
+  <div>
+    <div>hello {{ fullName }}</div>
+    <button @click="sendEvent">Click heros</button>
+  </div>
 </template>
 
 <script>
@@ -8,13 +11,18 @@ export default {
   name: "PersonGreeting",
   props: ["firstName", "lastName"],
 
-  setup(props) {
+  setup(props, context) {
     const fullName = computed(() => {
       return `${props.firstName} ${props.lastName}`;
     });
 
+    function sendEvent() {
+      context.emit("callHeros", fullName.value);
+    }
+
     return {
       fullName,
+      sendEvent,
     };
   },
 
