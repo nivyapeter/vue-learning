@@ -1,15 +1,15 @@
 <template>
   <div>
-    <PersonComponent />
+    <ClickCounter />
   </div>
 </template>
 
 <script>
-import PersonComponent from "./components/PersonComponent.vue";
+import ClickCounter from "./components/ClickCounter.vue";
 export default {
   name: "App",
   components: {
-    PersonComponent,
+    ClickCounter,
   },
   data() {
     return {};

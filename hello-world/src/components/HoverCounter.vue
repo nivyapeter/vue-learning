@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import CounterMixin from "../mixins/counter";
+// import CounterMixin from "../mixins/counter";
 export default {
   name: "HoverCounter",
-  mixins: [CounterMixin],
+  // mixins: [CounterMixin],
 };
 </script>
 
