@@ -1,15 +1,20 @@
 <template>
-  <filter-list />
+  <div>
+    <filter-list />
+    <ArrayNumber />
+  </div>
 </template>
 
 <script>
-import FilterList from './components/FilterList.vue'
+import ArrayNumber from './components/ArrayNumber.vue';
+import FilterList from './components/FilterList.vue';
 
 export default {
   name: 'App',
   components: {
+    ArrayNumber,
     FilterList
-  }
+}
 }
 </script>
 
