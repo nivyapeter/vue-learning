@@ -1,16 +1,19 @@
 <template>
   <div>
     <ArrayNumber />
+    <FindIndex />
   </div>
 </template>
 
 <script>
 import ArrayNumber from './components/ArrayNumber.vue';
+import FindIndex from './components/FindIndex.vue';
 
 export default {
   name: 'App',
   components: {
-   ArrayNumber
+   ArrayNumber,
+   FindIndex
   }
 }
 </script>
