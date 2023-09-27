@@ -2,6 +2,7 @@
   <div>
     <filter-list />
     <ArrayNumber />
+    <FindIndex />
   </div>
 </template>
 
