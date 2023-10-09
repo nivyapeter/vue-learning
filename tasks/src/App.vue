@@ -10,16 +10,16 @@
 <script>
 // import ArrayNumber from './components/ArrayNumber.vue';
 // import FilterList from './components/FilterList.vue';
-import BackgroundScrollEffect from './components/BackgroundScrollEffect.vue';
+import BackgroundScrollEffect from "./components/BackgroundScrollEffect.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     // ArrayNumber,
     // FilterList
-    BackgroundScrollEffect
-}
-}
+    BackgroundScrollEffect,
+  },
+};
 </script>
 
 <style>

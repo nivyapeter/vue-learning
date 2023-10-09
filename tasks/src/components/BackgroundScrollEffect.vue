@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="container" :style="{ backgroundImage }">
-      <div class="text-section">
+      <div id="background-color" class="text-section">
         <h1 class="container--title">Welcome to our website</h1>
         <p class="container--paragraph">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum,
@@ -26,9 +26,7 @@
         </p>
       </div>
       <div class="text-section">
-        <h1 ref="imageStyle" class="container--title">
-          Welcome to our website
-        </h1>
+        <h1 class="container--title">Welcome to our website</h1>
         <p class="container--paragraph">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum,
           quisquam mollitia, repellendus repellat consequatur alias dolore
@@ -51,23 +49,58 @@
           cum
         </p>
       </div>
+      <div class="drum-kit-container">
+        <DrumKits :data ="buttonData"/>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted } from "vue";
+import SnareImage from '../assets/snare.png';
+import KickImage from '../assets/kick.png';
+import CrashImage from '../assets/crash.png';
+import TomImage from '../assets/tom.png';
+import SnareSound from '../sounds/simpleBgm.mp3';
+import KickSound from '../sounds/kick.mp3';
+import CrashSound from '../sounds/crash.mp3';
+import TomSound from '../sounds/tom.mp3';
 
-const imageStyle = ref();
+import DrumKits from "./DrumKits.vue";
+
+const buttonData = [
+  {
+    text: "snare",
+    // eslint-disable-next-line no-undef
+    image: SnareImage,
+    sound: SnareSound 
+  },
+  {
+    text: "kick",
+    image: KickImage,
+    sound: KickSound
+  },
+  {
+    text: "crash",
+    image: CrashImage,
+    sound: CrashSound
+  },
+  {
+    text: "tom",
+    image: TomImage,
+    sound: TomSound
+  },
+];
 
 const backgroundImage = computed(() => {
-  return `url(${require("../assets/scenary.png")})`;
+  return `url(${require("../assets/dark_scenary.jpeg")})`;
 });
 
+const headingStyle = document.getElementById("background-color");
+
 const updateImage = () => {
-  if (window.scrollY >= 300) {
-    imageStyle.value.style.color = "red";
-  }
+  headingStyle.style.backgroundColor = "red";
 };
 
 onMounted(() => {
@@ -95,7 +128,7 @@ onUnmounted(() => {
   text-align: left;
 }
 .text-section {
-  max-width: 30%;
+  max-width: 80%;
   margin: auto;
 }
 
@@ -109,5 +142,12 @@ onUnmounted(() => {
   font-size: 20px;
   font-weight: 500;
   color: white;
+}
+.drum-kit-container {
+  width: 100%;
+  max-width: 80%;
+  margin: auto;
+  margin-top: 60px;
+  height: 60vh;
 }
 </style>
