@@ -29,7 +29,7 @@ const isPlaying  = ref(false);
 const togglePlay = (sound) => {
   const audio = new Audio(sound);
   console.log(isPlaying.value);
-  isPlaying.value ? audio.play() : audio.pause
+  isPlaying.value ? audio.play() : audio.pause()
 }
 
 const handleClick = (sound) => {
