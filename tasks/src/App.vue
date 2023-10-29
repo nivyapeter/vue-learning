@@ -3,21 +3,24 @@
     <!-- <filter-list />
     <ArrayNumber />
     <FindIndex /> -->
-    <BackgroundScrollEffect />
+    <!-- <BackgroundScrollEffect /> -->
+ <CopyToClipBoard />
   </div>
 </template>
 
 <script>
 // import ArrayNumber from './components/ArrayNumber.vue';
 // import FilterList from './components/FilterList.vue';
-import BackgroundScrollEffect from "./components/BackgroundScrollEffect.vue";
+// import BackgroundScrollEffect from "./components/BackgroundScrollEffect.vue";
 
+import CopyToClipBoard from './components/CopyToClipBoard.vue';
 export default {
   name: "App",
   components: {
     // ArrayNumber,
     // FilterList
-    BackgroundScrollEffect,
+    // BackgroundScrollEffect,
+    CopyToClipBoard
   },
 };
 </script>
