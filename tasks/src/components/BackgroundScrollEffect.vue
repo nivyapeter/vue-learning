@@ -52,6 +52,9 @@
       <div class="drum-kit-container">
         <DrumKits :data ="buttonData"/>
       </div>
+      <div>
+        <PhotoGallery />
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +71,7 @@ import CrashSound from '../sounds/crash.mp3';
 import TomSound from '../sounds/tom.mp3';
 
 import DrumKits from "./DrumKits.vue";
+import PhotoGallery from "./PhotoGallery.vue";
 
 const buttonData = [
   {
