@@ -26,6 +26,9 @@
       >
         Sign Up
       </button>
+      <p class="pt-6">
+        <router-link to="/login">Login</router-link>
+      </p>
     </div>
   </div>
 </template>
@@ -58,11 +61,16 @@ const signUp = async () => {
   } catch (error) {
     console.log(error);
   }
-
-  onMounted(() => {
-    
-  })
 };
+
+onMounted(() => {
+  let user = localStorage.getItem('user-info');
+
+  if(user) {
+    router.push({name:"Home"})
+  
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>
