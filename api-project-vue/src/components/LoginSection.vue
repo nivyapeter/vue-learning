@@ -28,16 +28,42 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import axios from "axios";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const userDetails = ref({
   email: "",
   password: "",
 });
 
-const login = () => {
+const login = async () => {
+  try {
+    const response = await axios.get(
+      `http://localhost:3000/users?email=${userDetails.value.email}&password=${userDetails.value.password}`
+    );
+    
+    if(response.status === 200 && response.data.length) {
+      localStorage.setItem("user-info",JSON.stringify(response.data[0]))
+        router.push({name:"Home"})
+    }
+
+    return response;
+  } catch (error) {
+    // pass
+  }
+};
+
+onMounted(() => {
+  let user = localStorage.getItem('user-info');
+
+  if(user) {
+    router.push({name:"Home"})
   
-}
+  }
+})
 </script>
 
 <style scoped></style>
