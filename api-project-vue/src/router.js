@@ -1,7 +1,10 @@
+import { createRouter, createWebHashHistory } from "vue-router";
+
 import HomeSection from "./components/HomeSection.vue";
 import SignUp from "./components/SignUp.vue";
 import LoginSection from "./components/LoginSection.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
+import AddRestaurant from "./components/AddResaurant.vue";
+import UpdateRestaurant from "./components/UpdateRestaurant.vue";
 
 const routes = [
   {
@@ -18,6 +21,16 @@ const routes = [
     name: "Login",
     component: LoginSection,
     path: "/login",
+  },
+  {
+    name: "Add",
+    component: AddRestaurant,
+    path: "/add",
+  },
+  {
+    name: "Update",
+    component: UpdateRestaurant,
+    path: "/update",
   },
 ];
 

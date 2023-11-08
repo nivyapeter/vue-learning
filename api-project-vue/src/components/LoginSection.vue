@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="text-center text-2xl m-8">Login</h1>
+  <div class="bg-white w-1/3 mx-auto p-6 my-12">
+    <h1 class="text-center text-2xl text-black m-8">Login</h1>
     <div class="flex flex-col items-center">
       <input
         class="w-[300px] h-[40px] p-5 mb-7 mx-auto border border-sky-400"
@@ -20,7 +20,7 @@
       >
         Log in
       </button>
-      <p class="pt-6">
+      <p class="pt-6 text-black">
         <router-link to="/sign-up">Sign Up</router-link>
       </p>
     </div>
@@ -44,10 +44,10 @@ const login = async () => {
     const response = await axios.get(
       `http://localhost:3000/users?email=${userDetails.value.email}&password=${userDetails.value.password}`
     );
-    
-    if(response.status === 200 && response.data.length) {
-      localStorage.setItem("user-info",JSON.stringify(response.data[0]))
-        router.push({name:"Home"})
+
+    if (response.status === 200 && response.data.length) {
+      localStorage.setItem("user-info", JSON.stringify(response.data[0]));
+      router.push({ name: "Home" });
     }
 
     return response;
@@ -57,13 +57,12 @@ const login = async () => {
 };
 
 onMounted(() => {
-  let user = localStorage.getItem('user-info');
+  let user = localStorage.getItem("user-info");
 
-  if(user) {
-    router.push({name:"Home"})
-  
+  if (user) {
+    router.push({ name: "Home" });
   }
-})
+});
 </script>
 
 <style scoped></style>

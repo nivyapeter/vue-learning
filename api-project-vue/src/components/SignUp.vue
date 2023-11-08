@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="text-center text-2xl m-8">Sign Up</h1>
+  <div class="bg-white w-1/3 mx-auto p-6 my-12">
+    <h1 class="text-center text-2xl text-black m-8">Sign Up</h1>
     <div class="flex flex-col items-center">
       <input
         class="w-[300px] h-[40px] p-5 mb-7 mx-auto border border-sky-400"
@@ -26,7 +26,7 @@
       >
         Sign Up
       </button>
-      <p class="pt-6">
+      <p class="pt-6 text-black">
         <router-link to="/login">Login</router-link>
       </p>
     </div>
