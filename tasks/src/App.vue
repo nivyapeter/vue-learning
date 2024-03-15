@@ -4,7 +4,9 @@
     <ArrayNumber />
     <FindIndex /> -->
     <!-- <BackgroundScrollEffect /> -->
- <CopyToClipBoard />
+    <!-- <CopyToClipBoard /> -->
+    <!-- <accordion-section /> -->
+    <ComputedProperty />
   </div>
 </template>
 
@@ -12,15 +14,20 @@
 // import ArrayNumber from './components/ArrayNumber.vue';
 // import FilterList from './components/FilterList.vue';
 // import BackgroundScrollEffect from "./components/BackgroundScrollEffect.vue";
+// import CopyToClipBoard from './components/CopyToClipBoard.vue';
 
-import CopyToClipBoard from './components/CopyToClipBoard.vue';
+// import AccordionSection from "./components/AccordionSection.vue";
+
+import ComputedProperty from './components/ComputedProperty.vue';
 export default {
   name: "App",
   components: {
     // ArrayNumber,
     // FilterList
     // BackgroundScrollEffect,
-    CopyToClipBoard
+    // CopyToClipBoard,
+    // AccordionSection
+    ComputedProperty
   },
 };
 </script>

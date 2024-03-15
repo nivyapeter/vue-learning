@@ -1,41 +1,35 @@
 {
   "users": [
     {
-      "email": "anju@test.com",
-      "password": "anju@1234",
-      "name": "anju",
+      "email": "ann@gmail.com",
+      "password": "ann@1234",
+      "name": "ann",
       "id": 1
     },
     {
       "email": "sara@test.com",
-      "password": "sar@1234#",
+      "password": "sara@1234",
       "name": "sara",
       "id": 2
-    },
-    {
-      "email": "anna@test.com",
-      "password": "anna@123",
-      "name": "anna",
-      "id": 3
     }
   ],
-  "restaurants":[
+  "restaurants": [
     {
       "id": 1,
-      "name":"Burger King",
-      "contact":9378676339,
+      "name": "Burger King",
+      "contact": 9378676339,
       "address": "Noida sector 50"
     },
     {
       "id": 2,
-      "name":"Dominos",
-      "contact":1212345655,
+      "name": "Dominos",
+      "contact": 1212345655,
       "address": "Delhi sector 20"
     },
     {
       "id": 3,
-      "name":"KFC",
-      "contact":9988573412,
+      "name": "KFC",
+      "contact": 9988573412,
       "address": "Kerala sector 10"
     }
   ]

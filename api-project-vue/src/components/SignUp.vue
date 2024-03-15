@@ -26,7 +26,7 @@
       >
         Sign Up
       </button>
-      <p class="pt-6 text-black">
+      <p class="pt-6 text-black overflow-hidden sm:w-5">
         <router-link to="/login">Login</router-link>
       </p>
     </div>

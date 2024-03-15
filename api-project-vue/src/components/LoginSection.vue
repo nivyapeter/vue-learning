@@ -1,21 +1,21 @@
 <template>
-  <div class="bg-white w-1/3 mx-auto p-6 my-12">
-    <h1 class="text-center text-2xl text-black m-8">Login</h1>
+  <div class="bg-white w-1/3 mx-auto p-6 my-12 rounded container">
+    <h1 class="text-center text-2xl text-black m-8 container__heading">Login</h1>
     <div class="flex flex-col items-center">
       <input
-        class="w-[300px] h-[40px] p-5 mb-7 mx-auto border border-sky-400"
+        class="w-[200px] xl:w-[300px]  h-[40px] p-5 mb-7 mx-auto border border-sky-400"
         type="text"
         placeholder="Enter E-mail"
         v-model="userDetails.email"
       />
       <input
-        class="w-[300px] h-[40px] p-5 mb-7 mx-auto border border-sky-400"
+        class="w-[200px] xl:w-[300px] h-[40px] p-5 mb-7 mx-auto border border-sky-400"
         type="text"
         placeholder="Enter Password"
         v-model="userDetails.password"
       />
       <button
-        class="w-[300px] h-[40px] bg-sky-400 text-white cursor-pointer"
+        class="w-[200px] xl:w-[300px] h-[40px] bg-sky-400 text-white cursor-pointer"
         @click="login"
       >
         Log in
@@ -65,4 +65,6 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

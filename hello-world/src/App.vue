@@ -1,11 +1,10 @@
 <template>
   <div>
-   <AddStudent />
+   <VueLearning />
   </div>
 </template>
 <script setup>
-import AddStudent from '@/components/Students/AddStudent.vue'
-
+import VueLearning from './components/VueLearning.vue';
 </script>
 
 <style scoped>

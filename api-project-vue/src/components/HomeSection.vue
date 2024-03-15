@@ -5,25 +5,27 @@
       {{ `Hello ${userName}, Welcome on Home Page` }}
     </h1>
     <div class="w-11/12 m-auto">
-    <v-table>
-      <thead>
-        <tr>
-          <th class="text-left">SI.No</th>
-          <th class="text-left">Name of Restaurant</th>
-          <th class="text-left">Contact Number</th>
-          <th class="text-left">Address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in restaurants" :key="item.id">
-          <td>{{ item.id }}</td>
-          <td>{{ item?.name }}</td>
-          <td>{{ item?.contact }}</td>
-          <td>{{ item?.address }}</td>
-        </tr>
-      </tbody>
-    </v-table>
-  </div>
+      <v-table>
+        <thead>
+          <tr>
+            <th class="text-left">SI.No</th>
+            <th class="text-left">Name of Restaurant</th>
+            <th class="text-left">Contact Number</th>
+            <th class="text-left">Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in restaurants" :key="item.id">
+            <td>{{ item.id }}</td>
+            <td>{{ item?.name }}</td>
+            <td>{{ item?.contact }}</td>
+            <td>{{ item?.address }}</td>
+          </tr>
+        </tbody>
+      </v-table>
+    </div>
+    <div class="w-[60%] m-auto">
+    </div>
   </div>
 </template>
 
@@ -56,4 +58,9 @@ onMounted(async () => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+rect {
+  background-color: red !important;
+}
+
+</style>
