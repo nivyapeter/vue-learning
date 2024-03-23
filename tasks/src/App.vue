@@ -6,7 +6,8 @@
     <!-- <BackgroundScrollEffect /> -->
     <!-- <CopyToClipBoard /> -->
     <!-- <accordion-section /> -->
-    <ComputedProperty />
+    <!-- <ComputedProperty /> -->
+    <CheckJSONValid />
   </div>
 </template>
 
@@ -17,8 +18,9 @@
 // import CopyToClipBoard from './components/CopyToClipBoard.vue';
 
 // import AccordionSection from "./components/AccordionSection.vue";
+import CheckJSONValid from './components/CheckJSONValid.vue'
 
-import ComputedProperty from './components/ComputedProperty.vue';
+// import ComputedProperty from './components/ComputedProperty.vue';
 export default {
   name: "App",
   components: {
@@ -27,7 +29,8 @@ export default {
     // BackgroundScrollEffect,
     // CopyToClipBoard,
     // AccordionSection
-    ComputedProperty
+    // ComputedProperty
+    CheckJSONValid
   },
 };
 </script>
