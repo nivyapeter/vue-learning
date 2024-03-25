@@ -102,6 +102,36 @@ const mostFrequentItem = (numberArray) =>
 //   mostFrequentItem([3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3])
 // );
 
-const duplicatesFromAnArray = (inputArray) => inputArray.filter((item,index) => inputArray.indexOf(item) !== index ) 
+const duplicatesFromAnArray = (inputArray) => inputArray.filter((item, index) => inputArray.indexOf(item) !== index)
 
 // console.log(duplicatesFromAnArray([3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3]));
+const list = [{
+  name: "object1"
+},
+{
+  name: "object2"
+},
+{
+  name: "object3"
+},
+{
+  name: "object4"
+}
+]
+
+const objectContainsData = (list) => {
+  const item = {
+    name: "object3"
+  };
+  // const contains = list.some(({name}) => {
+  //  return  item.name === name
+  // });
+
+  const contains = list.some((el) => el.name.includes(item.name))
+
+  return contains;
+}
+
+console.log(objectContainsData(list));
+
+
