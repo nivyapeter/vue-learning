@@ -102,36 +102,104 @@ const mostFrequentItem = (numberArray) =>
 //   mostFrequentItem([3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3])
 // );
 
-const duplicatesFromAnArray = (inputArray) => inputArray.filter((item, index) => inputArray.indexOf(item) !== index)
+const duplicatesFromAnArray = (inputArray) =>
+  inputArray.filter((item, index) => inputArray.indexOf(item) !== index);
 
 // console.log(duplicatesFromAnArray([3, "a", "a", "a", 2, 3, "a", 3, "a", 2, 4, 9, 3]));
-const list = [{
-  name: "object1"
-},
-{
-  name: "object2"
-},
-{
-  name: "object3"
-},
-{
-  name: "object4"
-}
-]
+const list = [
+  {
+    name: "object1",
+  },
+  {
+    name: "object2",
+  },
+  {
+    name: "object3",
+  },
+  {
+    name: "object4",
+  },
+];
 
 const objectContainsData = (list) => {
   const item = {
-    name: "object3"
+    name: "object3",
   };
   // const contains = list.some(({name}) => {
   //  return  item.name === name
   // });
 
-  const contains = list.some((el) => el.name.includes(item.name))
+  const contains = list.some((el) => el.name.includes(item.name));
 
   return contains;
+};
+
+// console.log(objectContainsData(list));
+
+const deleteAnItemFromObject = () => {
+  let student = {
+    name: "David Rayy",
+    sclass: "VI",
+    rollno: 12,
+  };
+
+  delete student.name;
+
+  let json = student;
+
+  return json;
+};
+
+// console.log(deleteAnItemFromObject());
+const lengthOfObject = () => {
+  const student = {
+    name: "David Rayy",
+    sclass: "VI",
+    rollno: 12,
+  };
+
+  return Object.entries(student).length
+};
+
+// console.log(lengthOfObject());
+
+const displayReadingStatus = () => {
+  const library = [
+    {
+      author: 'Bill Gates',
+      title: 'The Road Ahead',
+      readingStatus: true
+    },
+    {
+      author: 'Steve Jobs',
+      title: 'Walter Isaacson',
+      readingStatus: true
+    },
+    {
+      author: 'Suzanne Collins',
+      title: 'Mockingjay: The Final Book of The Hunger Games',
+      readingStatus: false
+    }];
+
+
+  for (i = 0; i < library.length; i++) {
+    if (library[i].readingStatus) {
+      console.log(`Already read ${library[i].title} by ${library[i].author}`);
+    } else {
+      console.log(`Need to read ${library[i].title} by ${library[i].author} `);
+    }
+  }
+
 }
 
-console.log(objectContainsData(list));
+// console.log(displayReadingStatus());
+
+const sortData = () => {
+  const data = [6, 4, 0, 3, -2, 1]
+  return data.sort((a, b) => a - b)
+}
+// console.log(sortData());
+
+
 
 
