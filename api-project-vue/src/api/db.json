@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "email": "ann@gmail.com",
+      "password": "ann@1234",
+      "name": "ann",
+      "id": 1
+    },
+    {
+      "email": "sara@test.com",
+      "password": "sara@1234",
+      "name": "sara",
+      "id": 2
+    }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Burger King",
+      "contact": 9378676339,
+      "address": "Noida sector 50"
+    },
+    {
+      "id": 2,
+      "name": "Dominos",
+      "contact": 1212345655,
+      "address": "Delhi sector 20"
+    },
+    {
+      "id": 3,
+      "name": "KFC",
+      "contact": 9988573412,
+      "address": "Kerala sector 10"
+    }
+  ]
+}

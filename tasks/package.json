@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "tasks",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,12 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/vue-fontawesome": "^3.0.3",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "core-js": "^3.8.3",
-    "lodash": "^4.17.21",
+    "highcharts-vue": "^1.4.3",
     "vue": "^3.2.13"
   },
   "devDependencies": {
@@ -23,7 +20,9 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0"
   },
   "eslintConfig": {
     "root": true,
