@@ -7,7 +7,8 @@
     <!-- <CopyToClipBoard /> -->
     <!-- <accordion-section /> -->
     <!-- <ComputedProperty /> -->
-    <CheckJSONValid />
+    <!-- <CheckJSONValid /> -->
+    <ParentComponent />
   </div>
 </template>
 
@@ -18,9 +19,10 @@
 // import CopyToClipBoard from './components/CopyToClipBoard.vue';
 
 // import AccordionSection from "./components/AccordionSection.vue";
-import CheckJSONValid from './components/CheckJSONValid.vue'
+// import CheckJSONValid from './components/CheckJSONValid.vue'
 
 // import ComputedProperty from './components/ComputedProperty.vue';
+import ParentComponent from './components/ParentComponent.vue';
 export default {
   name: "App",
   components: {
@@ -30,7 +32,9 @@ export default {
     // CopyToClipBoard,
     // AccordionSection
     // ComputedProperty
-    CheckJSONValid
+    // CheckJSONValid
+    ParentComponent
+    
   },
 };
 </script>
