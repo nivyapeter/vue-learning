@@ -11,6 +11,12 @@
       "password": "sara@1234",
       "name": "sara",
       "id": 2
+    },
+    {
+      "email": "anjana@gmail.com",
+      "password": "1234",
+      "name": "anjana",
+      "id": 3
     }
   ],
   "restaurants": [

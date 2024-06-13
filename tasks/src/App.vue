@@ -8,7 +8,8 @@
     <!-- <accordion-section /> -->
     <!-- <ComputedProperty /> -->
     <!-- <CheckJSONValid /> -->
-    <ParentComponent />
+    <!-- <ParentComponent /> -->
+    <LinearGaugeGraph />
   </div>
 </template>
 
@@ -22,7 +23,8 @@
 // import CheckJSONValid from './components/CheckJSONValid.vue'
 
 // import ComputedProperty from './components/ComputedProperty.vue';
-import ParentComponent from './components/ParentComponent.vue';
+// import ParentComponent from './components/ParentComponent.vue';
+import LinearGaugeGraph from './components/LinearGaugeGraph.vue';
 export default {
   name: "App",
   components: {
@@ -33,7 +35,8 @@ export default {
     // AccordionSection
     // ComputedProperty
     // CheckJSONValid
-    ParentComponent
+    // ParentComponent
+    LinearGaugeGraph
     
   },
 };
